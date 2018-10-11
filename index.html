@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivial Trivia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <section class="row">
+            <h1>Time Left: <span id="timer"></span></h1>
+            <button id=start>Start</button>
+        </section>
+        <div id="quiz">
+            <div>Question one: <span id = q1></span></div>
+            <div class="choices">
+                <button id=a1>Midna</button>
+                <button id=b1>Link</button>
+                <button id=c1>Zelda</button>
+            </div>
+            <div>Question two: <span id = q2></span></div>
+            <div class="choices">
+                <button id=a2>holder magic</button>
+                <button id=b2>caster magic</button>
+                <button id=c2>dragon slayer magic</button>
+            </div>
+            <div>Question three: <span id = q3></span></div>
+            <div class="choices">
+                <button id=a3>speed force</button>
+                <button id=b3>speed relm</button>
+                <button id=c3>speed dimension</button>
+            </div>
+        </div>
+        <button id="submit">Submit Quiz</button>
+        <div id="results"></div>
+</body>
+<script src="assets/javascript/game.js"></script>
+
+</html>
