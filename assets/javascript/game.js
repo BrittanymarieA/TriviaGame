@@ -10,6 +10,7 @@ var time = 120;
 var timeInterval;
 var numCorrect = 0;
 var numWrong = 0;
+var userGuess = [];
 var questions = [
     {
         question: "In the anime Fairytail what type of wizard is Natzu Dragneel?",
@@ -42,14 +43,15 @@ var questions = [
         answerIndex: 0
     },
     {
-        question: "In the show the Arrow why are their two Laurals?",
-        answers: ["Luaral has a twin.", "Laural is brought back to life witha different personality?", "Laural loses her memory, and develops a new identity.", "One Laural is from a parallel earth."],
+        question: "In the show The Arrow why are their two Laurals?",
+        answers: ["Luaral has a twin.", "Laural is brought back to life with a different personality?", "Laural loses her memory, and develops a new identity.", "One Laural is from a parallel earth."],
         answerIndex: 3
     },
 ];
 
 $("#timer").text(time);
 renderQuestions();
+showReults();
 
 $("#start").on("click", function () {
     $("#intro").addClass("hidden");
@@ -60,7 +62,8 @@ $("#start").on("click", function () {
         time--;
         if (time === 0) {
             clearInterval(timeInterval);
-            checkTrivia();
+            showReults();
+            alert("All out of Time")
         }
         $("#timer").text(time);
     }, 1000);
@@ -90,26 +93,36 @@ function renderQuestions() {
 
 }
 
-    function showReults() {
-        
-        if (answers === answerIndex) {
-            numCorrect++;
-            $("#correct").text(numCorrect);
-        } else {
-            numWrong++;
-            $("#wrong").text(numWrong);
-        }
+// function showReults() {  
+//         if (userGuess === answerIndex) {
+//             numCorrect++;
+//             $("#correct").text(numCorrect);
+//         } else {
+//             numWrong++;
+//             $("#wrong").text(numWrong);
+//         };
 
-    $("#correct").text(numCorrect);
-    $("#wrong").text(numWrong);
 
-    $("#submit").on("click").append(showReults);
-    if(time === 0){
-        append(showReults);
+//     $("#correct").text(numCorrect);
+//     $("#wrong").text(numWrong);
+//     console.log(numCorrect);
+//     console.log(numWrong);
+//     console.log(showReults);
+//}
+
+function showReults(){
+for (var i = 0; i < questions[i].answerIndex.length; i++) {
+    if (userGuess === questions[i].answerIndex) {
+      numCorrect++;
     }
+    else{
+        numWrong++;
     }
+$("correct").text(numCorrect);
+$("wrong").text(numWrong);
+  }}
 
-
+$("#submit").on("click").append(showReults);
 
 
 
