@@ -92,6 +92,7 @@ function renderQuestions() {
 
 
 }
+// i tried two differnt versions to tally score, and i am not sure how to get either to work. i the first one that is uncommented i compiled first off the top of my head. the other one i tried to manipulate after past exercizes. i was attempting to use a loop through answers selected, and compare them to my answerIndex ),: 
 
 // function showReults() {  
 //         if (userGuess === answerIndex) {
