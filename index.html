@@ -15,33 +15,21 @@
 </head>
 
 <body>
-    <div class="container">
-        <section class="row">
-            <h1>Time Left: <span id="timer"></span></h1>
-            <button id=start>Start</button>
-        </section>
-        <div id="quiz">
-            <div>Question one: <span id = q1></span></div>
-            <div class="choices">
-                <button id=a1>Midna</button>
-                <button id=b1>Link</button>
-                <button id=c1>Zelda</button>
-            </div>
-            <div>Question two: <span id = q2></span></div>
-            <div class="choices">
-                <button id=a2>holder magic</button>
-                <button id=b2>caster magic</button>
-                <button id=c2>dragon slayer magic</button>
-            </div>
-            <div>Question three: <span id = q3></span></div>
-            <div class="choices">
-                <button id=a3>speed force</button>
-                <button id=b3>speed relm</button>
-                <button id=c3>speed dimension</button>
-            </div>
-        </div>
-        <button id="submit">Submit Quiz</button>
-        <div id="results"></div>
+    <h1>Nerd Trivia!</h1>
+
+    <div id="intro">
+        <button id="start">Get Started!</button>
+    </div>
+
+    <div id="trivia" class="hidden">
+        <h3>Time left: <span id="timer"></span> Seconds</h3>
+        <h2 id="questions"></h2>
+    </div>
+    <div id="score" class = "hidden">
+        <h3>Number of Answers Correct: <span id=correct></span></h3>
+        <h3>Number of Answers Wrong: <span id=wrong></span></h3>
+    </div>
+    <button id="submit">Submit</button>
 </body>
 <script src="assets/javascript/game.js"></script>
 

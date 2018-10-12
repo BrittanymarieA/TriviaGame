@@ -1,0 +1,29 @@
+body{
+    width: 750px;
+    margin: 20px;
+    text-align: left;
+    line-height: 35px;
+    font-size: 18px;
+    color: lightcyan;
+    background-image: url("https://www.nerdshd.com/wp-content/uploads/2014/10/geek-wallpaper-collection-1-stugon.com-8.png?x53666");
+}
+
+h1{
+    background-color: grey;
+    width: 180px;
+    color:lightcyan;
+    font-size: 35px;
+}
+
+button {
+    background: grey;
+    color: lightcyan; 
+}
+#trivia{
+    letter-spacing: 2px;
+    padding-inline-end: 2px;
+}
+.btn{
+    margin: 2px;
+}
+

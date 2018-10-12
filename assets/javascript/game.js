@@ -6,84 +6,117 @@
 //show score
 
 //timer
-
-var interval;
-var number = 120;
-
-$("#start").on("click", run);
-
-function run() {
-    clearInterval(interval);
-    interval = setInterval(decrement, 1000)
-}
-
-function decrement() {
-    number--;
-    $("#timer").text(number)
-    if (number === 0) {
-        stop();
-    }
-}
-
-var quizContainer = document.getElementById("quiz");
-var results = document.getElementById("score");
-var submit = document.getElementById("submit");
-
-//questions
-
-var myQuestions = [
+var time = 120;
+var timeInterval;
+var numCorrect = 0;
+var numWrong = 0;
+var questions = [
     {
-        question1: "In the game Legend of Zelda who is the main character that the user plays as?",
-        answers: {
-            a: "Midna",
-            b: "Link",
-            c: "Zelda",
-        },
-        b: rightAnswer,
+        question: "In the anime Fairytail what type of wizard is Natzu Dragneel?",
+        answers: ["caster type", "fire slayer", "dragon slayer", "dragon ability"],
+        answerIndex: 3
     },
     {
-        question2: "In the anime Fairytail what type of magic does Natsu Dragneel use?",
-        answers: {
-            a: "holder magic",
-            b: "caster magic",
-            c: "dragon slayer magic",
-        },
-        c: rightAnswer
+        question: "In the game Legend of Zelda what is the name of the character you play as?",
+        answers: ["Midna", "Link", "Zelda", "Super Mario"],
+        answerIndex: 1
     },
     {
-        question3: "In the show The Flash where does a speedster harnest their powers from?",
-        answers: {
-            a: "speed force",
-            b: "speed relm",
-            c: "speed dimension",
-        },
-        a: rightAnswer
-    }
+        question: "In the game Pokemon Yellow which starter is the grass type?",
+        answers: ["Bulbasaur", "Charmander", "Squirtle", "Evee"],
+        answerIndex: 0
+    },
+    {
+        question: "In the imove Howl's Moving Castle who was the Fire Demon?",
+        answers: ["Howl", "Hin", "Calcifer", "Madame Suliman"],
+        answerIndex: 2
+    },
+    {
+        question: "In the anime Fullmetal Alchemis Brotherhood what is the date in Edward's pocket watch?",
+        answers: ["3 Oct. 10", "11 Oct. 3", "3 Oct. 11", "3 Aug. 11"],
+        answerIndex: 2
+    },
+    {
+        question: "In the show The Flash where does a speedster harnest their powers from?",
+        answers: ["speed force", "speed relm", "speed tachyons", "tachyon particals"],
+        answerIndex: 0
+    },
+    {
+        question: "In the show the Arrow why are their two Laurals?",
+        answers: ["Luaral has a twin.", "Laural is brought back to life witha different personality?", "Laural loses her memory, and develops a new identity.", "One Laural is from a parallel earth."],
+        answerIndex: 3
+    },
 ];
 
-var numRight = 0;
-var numWrong = 0;
+$("#timer").text(time);
+renderQuestions();
+
+$("#start").on("click", function () {
+    $("#intro").addClass("hidden");
+    $("#trivia").removeClass("hidden");
+    $("#score").removeClass("hidden");
+
+    timeInterval = setInterval(function () {
+        time--;
+        if (time === 0) {
+            clearInterval(timeInterval);
+            checkTrivia();
+        }
+        $("#timer").text(time);
+    }, 1000);
+});
+
+function renderQuestions() {
+
+    questions.forEach(function (question, index) {
+        var $form = $("<form>");
+        var $question = $("<h3>").text(question.question);
+
+        $form.append($question);
+
+        question.answers.forEach(function (answer, i) {
+            var $input = $('<input type="radio">');
+            $input.attr("value", answer);
+            $input.attr("name", index);
+            $form.append($input);
+            $form.append(answer);
 
 
-for(var i =0; i < myQuestions.length; i++){
-   $("#q1").text(myQuestions[0].question1);
-   $("#q2").text(myQuestions[1].question2);
-   $("#q3").text(myQuestions[2].question3);
- 
-   if(answers === myQuestions[i].rightAsnwer){
-       numRight++
-   }else{
-       numWrong++
-   }
+        });
+
+        $("#questions").append($form);
+    });
+
+
 }
 
-$("#submit").on("click").text(numRight, numWrong);
-if(number === 0){
-    document.text(numRight, numWrong)
+function checkTrivia() {
+    var $forms = $("form");
+    $forms.each(function (i, elem) {
+        $(elem).find("input:checked").each(function (i, elem) {
+            console.log(elem);
+        });
+    })
+
+
+    function showReults() {
+        if (answers === answerIndex) {
+            numCorrect++;
+            $("#correct").text(numCorrect);
+        } else {
+            numWrong++;
+            $("#wrong").text(numWrong);
+        }
+
+    $("#correct").text(numCorrect);
+    $("#wrong").text(numWrong);
+
+    $("#submit").on("click").append(showReults);
+    if(time === 0){
+        append(showReults);
+    }
+    }
 }
-
-
-
 
 
 
