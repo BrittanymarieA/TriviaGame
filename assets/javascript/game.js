@@ -90,16 +90,8 @@ function renderQuestions() {
 
 }
 
-function checkTrivia() {
-    var $forms = $("form");
-    $forms.each(function (i, elem) {
-        $(elem).find("input:checked").each(function (i, elem) {
-            console.log(elem);
-        });
-    })
-
-
     function showReults() {
+        
         if (answers === answerIndex) {
             numCorrect++;
             $("#correct").text(numCorrect);
@@ -116,7 +108,7 @@ function checkTrivia() {
         append(showReults);
     }
     }
-}
+
 
 
 
